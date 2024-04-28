@@ -2,7 +2,22 @@
 const grid = document.querySelector("#container");
 
 // Function to fill square
-const fill = (e) => { e.target.classList.add("active"); }
+const fill = (e) => {
+    e.target.classList.add("active");
+}
+
+const changeSize = () => {
+    let size = prompt("Please enter a number between 1 and 100. For example, inputting \'9\' will create a 9x9 grid.", "");
+    if (size === null)
+        return;
+    
+    size = parseInt(size);
+    
+    if (Number.isInteger(size) && (size > 0 && size <= 100))
+        createGrid(size);
+    else
+        changeSize();
+}
 
 // Create grid
 const createGrid = (size) => {
@@ -27,5 +42,9 @@ const createGrid = (size) => {
         }
     }
 }
+
+// Make button prompt grid size change
+const sizeButton = document.querySelector("#sizeChanger");
+sizeButton.addEventListener("click", changeSize);
 
 createGrid(16);
