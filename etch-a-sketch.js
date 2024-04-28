@@ -3,7 +3,11 @@ const grid = document.querySelector("#container");
 
 // Function to fill square
 const fill = (e) => {
-    e.target.classList.add("active");
+    let r = Math.floor(Math.random() * 256);
+    let g = Math.floor(Math.random() * 256);
+    let b = Math.floor(Math.random() * 256);
+    e.target.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
+    console.log(e.target.style.backgroundColor);
 }
 
 const changeSize = () => {
